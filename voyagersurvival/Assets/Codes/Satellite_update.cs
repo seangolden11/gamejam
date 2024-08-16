@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Satellite : MonoBehaviour
+public class Satellite_update : MonoBehaviour
 {
     public Vector2 inputVec;
-    public float speed;
 
     Rigidbody2D rigid;
 
@@ -24,7 +23,6 @@ public class Satellite : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
-        rigid.MovePosition(rigid.position + nextVec);
+        rigid.MovePosition(rigid.position + inputVec);
     }
 }
