@@ -10,22 +10,31 @@ public class Spawner : MonoBehaviour
     float timer;
     public float radius;
     Satellite_update sate;
-
+    public int spawnLevel;
+    public SpawnData[] spawnData;
+    
     void Start()
     {
         poolman = GameManger.Instance.pool;
         sate = GameManger.Instance.sate;
+        
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
-
-        if(timer > 0.2f)
+        spawnLevel = Mathf.FloorToInt(GameManger.Instance.gameTime/ 10f);
+        if(spawnLevel >= spawnData.Length)
+        {
+            spawnLevel = spawnData.Length - 1;
+        }
+        if(timer > spawnData[spawnLevel].spawnTime)
         {
             timer = 0;
             Spawn();
+
         }
+        
     }
 
     void Spawn()
@@ -37,6 +46,16 @@ public class Spawner : MonoBehaviour
         GameObject asteroid = GameManger.Instance.pool.Get(Random.Range(0, 2));
         asteroid.transform.position = spawnPoint;
         asteroid.GetComponent<Asteroid>().spawnPos = spawnPoint;
+        asteroid.GetComponent<Asteroid>().OnActive();
+    }
+
+    [System.Serializable]
+    public class SpawnData
+    {
+        public float spawnTime;
+        
+        public int health;
+        public float speed;
     }
 
 }
