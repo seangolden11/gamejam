@@ -8,11 +8,13 @@ public class Satellite_update : MonoBehaviour
     public Vector2 inputVec;
     public float speed;
     Rigidbody2D rigid;
+    ScrollUV scrolluv;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        scrolluv = GameManger.Instance.scrolluv;
     }
 
     // Update is called once per frame
@@ -25,5 +27,6 @@ public class Satellite_update : MonoBehaviour
     void FixedUpdate()
     {
         rigid.MovePosition(rigid.position + (inputVec * Time.fixedDeltaTime * speed));
+        scrolluv.ChangeOffset(inputVec.x, inputVec.y);
     }
 }

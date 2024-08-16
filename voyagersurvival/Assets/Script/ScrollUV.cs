@@ -12,13 +12,14 @@ public class ScrollUV : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void ChangeOffset(float deltax, float deltay)
     {
         Material mat = mr.material;
 
         Vector2 offset = mat.mainTextureOffset;
 
-        offset.x += Time.deltaTime/ 10f;
+        offset.x +=  deltax * Time.deltaTime/ 10f;
+        offset.y += deltay * Time.deltaTime / 10f;
 
         mat.mainTextureOffset = offset;
     }

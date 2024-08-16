@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  lifeTime: 10
+  spawnPos: {x: 0, y: 0}
+  lifeTime: 20
 --- !u!1 &153142
 GameObject:
   m_ObjectHideFlags: 0

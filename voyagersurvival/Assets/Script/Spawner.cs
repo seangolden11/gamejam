@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        spawnPoint = Random.insideUnitCircle;
+        spawnPoint = Random.insideUnitCircle.normalized;
         spawnPoint.y *= radius;
         spawnPoint.x *= radius;
         spawnPoint += sate.transform.position;
