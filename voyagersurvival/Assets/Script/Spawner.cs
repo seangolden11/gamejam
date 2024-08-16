@@ -30,6 +30,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject asteroid = GameManger.Instance.pool.Get(Random.Range(0, 2));
         asteroid.transform.position = Vector3.zero;
+        asteroid.GetComponent<Asteroid>().spawnPos = Vector3.zero;
     }
 
 }

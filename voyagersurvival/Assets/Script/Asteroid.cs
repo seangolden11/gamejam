@@ -9,7 +9,7 @@ public class Asteroid : MonoBehaviour
     bool isAlive;
     Vector2 dirvec;
     public float speed;
-    Vector2 spawnPos;
+    public Vector2 spawnPos;
     public float lifeTime;
 
     void Start()
@@ -50,6 +50,7 @@ public class Asteroid : MonoBehaviour
     private void OnEnable()
     {
         dirvec = Random.insideUnitCircle.normalized;
-        spawnPos = transform.position;
+        //spawnPos = transform.position;
+        isAlive = true;
     }
 }
