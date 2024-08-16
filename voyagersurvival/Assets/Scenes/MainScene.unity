@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+
 --- !u!1 &471547489
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f3ccf3435562b4286ca47fd37c3ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
   radius: 8
+
 --- !u!114 &471547491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +171,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 471547492}
+
+  effectPrefab: {fileID: 5308289669433200639, guid: 7b760bdbc864e0041bdfb1fb19247802, type: 3}
+  effectGroup: {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
+
   sate: {fileID: 1036710201}
+
 --- !u!114 &471547492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +327,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1036710203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &680661500
 GameObject:
   m_ObjectHideFlags: 0
