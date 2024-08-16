@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Satellite_update : MonoBehaviour
 {
     public Vector2 inputVec;
-
+    public float speed;
     Rigidbody2D rigid;
 
     // Start is called before the first frame update
@@ -23,6 +24,6 @@ public class Satellite_update : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.MovePosition(rigid.position + inputVec);
+        rigid.MovePosition(rigid.position + (inputVec * Time.fixedDeltaTime * speed));
     }
 }
