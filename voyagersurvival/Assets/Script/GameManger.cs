@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManger : MonoBehaviour
 {
    public static GameManger Instance;
-    public PoolManager pool;
+    //public PoolManager pool;
 
     public GameObject effectPrefab;
     public GameObject effectGroup;
