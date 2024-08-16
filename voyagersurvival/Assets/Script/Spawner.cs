@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    PoolManager poolman;
+
     void Start()
     {
-        
+        poolman = GameManger.Instance.pool;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
