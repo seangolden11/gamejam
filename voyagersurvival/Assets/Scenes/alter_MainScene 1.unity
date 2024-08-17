@@ -4980,7 +4980,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cd9b84d7410db1c4ab58d792a98b9563, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7840312aa14fe644bab7d03e64650f00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5037,9 +5037,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f3ccf3435562b4286ca47fd37c3ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
+  radius: 8
   spawnLevel: 0
-  spawnData: []
+  spawnData:
+  - spawnTime: 1
+    health: 0
+    speed: 0
+  - spawnTime: 1
+    health: 0
+    speed: 0
+  - spawnTime: 1
+    health: 0
+    speed: 0
 --- !u!114 &471547491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10332,7 +10341,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 474459e3a018bd64fa71256e115ce665, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c09d94032ce9467448ee8ab0d92bb77a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10525,8 +10534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226eb3b497041d646b79fee315551dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redMaterial: {fileID: 2100000, guid: d9aa3b31cf667b943b523e364c96b690, type: 2}
-  redDuration: 0.1
 --- !u!212 &1793465194
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15436,7 +15443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 070c7453b4d0e6240abfc9f95599fddb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5211c1f571f9dcc438800c80701b6fc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
