@@ -63,7 +63,8 @@ public class Asteroid : MonoBehaviour
     Vector2 GetRandomDirection()
     {
         // 타겟 위치에서 현재 위치를 빼서 방향 벡터를 구합니다.
-        
+        Debug.Log(player.transform.position);
+        Debug.Log(transform.position);
         Vector2 direction = (Vector2)player.transform.position - (Vector2)transform.position;
 
         // 벡터의 각도를 구합니다.
