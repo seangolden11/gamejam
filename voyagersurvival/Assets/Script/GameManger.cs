@@ -28,4 +28,15 @@ public class GameManger : MonoBehaviour
 
 
     }
+
+
+    private void OnApplicationQuit()
+    {
+        DataManager.Instance.SaveGameData();
+    }
+
+    private void Start()
+    {
+        DataManager.Instance.LoadGameData();
+    }
 }
