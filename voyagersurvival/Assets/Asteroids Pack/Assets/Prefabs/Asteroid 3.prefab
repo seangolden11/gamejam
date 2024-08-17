@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 5428902}
   - component: {fileID: 11467940}
   - component: {fileID: 6322384215683854959}
+  - component: {fileID: 7935554559415467362}
   m_Layer: 0
   m_Name: Asteroid 3
   m_TagString: Enemy
@@ -152,6 +153,27 @@ MonoBehaviour:
   speed: 2
   spawnPos: {x: 0, y: 0}
   lifeTime: 20
+--- !u!135 &7935554559415467362
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.6714115
+  m_Center: {x: -0.26383138, y: 0, z: 0}
 --- !u!1 &153142
 GameObject:
   m_ObjectHideFlags: 0

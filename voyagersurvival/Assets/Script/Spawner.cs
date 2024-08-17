@@ -43,6 +43,7 @@ public class Spawner : MonoBehaviour
         spawnPoint.y *= radius;
         spawnPoint.x *= radius;
         spawnPoint += sate.transform.position;
+        spawnPoint.z = 0;
         GameObject asteroid = GameManger.Instance.pool.Get(Random.Range(0, 2));
         asteroid.transform.position = spawnPoint;
         asteroid.GetComponent<Asteroid>().spawnPos = spawnPoint;
