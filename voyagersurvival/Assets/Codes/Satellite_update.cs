@@ -9,12 +9,15 @@ public class Satellite_update : MonoBehaviour
     public float speed;
     Rigidbody2D rigid;
     ScrollUV scrolluv;
+    public float maxHp;
+    public float curHp;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         scrolluv = GameManger.Instance.scrolluv;
+        curHp = maxHp;
     }
 
     // Update is called once per frame
