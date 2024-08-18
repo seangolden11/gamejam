@@ -13,10 +13,12 @@ public class Spawner : MonoBehaviour
     public int spawnLevel;
     public SpawnData[] spawnData;
     
+    
     void Start()
     {
         poolman = GameManger.Instance.pool;
         sate = GameManger.Instance.sate;
+
         
     }
 
@@ -43,10 +45,11 @@ public class Spawner : MonoBehaviour
         spawnPoint.y *= radius;
         spawnPoint.x *= radius;
         spawnPoint += sate.transform.position;
+        spawnPoint.z = 0;
         GameObject asteroid = GameManger.Instance.pool.Get(Random.Range(0, 2));
         asteroid.transform.position = spawnPoint;
         asteroid.GetComponent<Asteroid>().spawnPos = spawnPoint;
-        asteroid.GetComponent<Asteroid>().OnActive();
+        asteroid.GetComponent<Asteroid>().OnActive(spawnData[spawnLevel].health, spawnData[spawnLevel].damage);
     }
 
     [System.Serializable]
@@ -56,6 +59,7 @@ public class Spawner : MonoBehaviour
         
         public int health;
         public float speed;
+        public float damage;
     }
 
 }

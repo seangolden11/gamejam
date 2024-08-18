@@ -13,6 +13,9 @@ public class Asteroid : MonoBehaviour
     public Vector2 spawnPos;
     public float lifeTime;
     GameObject player;
+    public float curHp;
+    public float maxHp;
+    public float Damage;
 
     void Start()
     {
@@ -51,14 +54,19 @@ public class Asteroid : MonoBehaviour
            
     }
 
-    public void OnActive()
+    public void OnActive(float maxhp, float damage)
     {
         if (!player)
             player = GameManger.Instance.player;
         dirvec = GetRandomDirection();
-        
+        this.maxHp = maxhp;
+        this.Damage = damage;
+        curHp = maxHp;
+
         isAlive = true;
     }
+
+   
 
     Vector2 GetRandomDirection()
     {
@@ -80,5 +88,16 @@ public class Asteroid : MonoBehaviour
         float radian = angle * Mathf.Deg2Rad;
 
         return new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
+    }
+
+    public void GiveDamage(float damage)
+    {
+        curHp -= damage;
+        if (curHp < 0)
+        {
+            GameManger.Instance.GetMineral((int)maxHp);
+            isAlive = false;
+            this.gameObject.SetActive(false);
+        }
     }
 }
