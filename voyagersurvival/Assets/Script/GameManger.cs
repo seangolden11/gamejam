@@ -14,6 +14,7 @@ public class GameManger : MonoBehaviour
     public ParticleSystem[] ps;
     public GameObject effectGroup;
     public int[] weaponLevel;
+    public GameObject weaponPanel;
 
 
     private void Awake()
@@ -24,12 +25,18 @@ public class GameManger : MonoBehaviour
             weaponLevel[i] = 0;
         }
         gameTime = 0;
+        weaponPanel.SetActive(false);
     }
 
     private void Update()
     {
         gameTime += Time.deltaTime;
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (weaponPanel.activeSelf)
+                weaponPanel.SetActive(false);
+            weaponPanel.SetActive(true);
+        }
 
     }
 

@@ -42,6 +42,10 @@ public class Bullet : MonoBehaviour
                 // 미사일을 앞으로 이동 (미사일의 앞쪽이 y축이 아니라면 Vector3.up을 Vector3.right로 변경)
                 transform.position += transform.right * speed * Time.deltaTime;
                 break;
+            case 1:
+                transform.position += transform.right * speed * Time.deltaTime;
+                break;
+
         }
     }
 
@@ -64,12 +68,12 @@ public class Bullet : MonoBehaviour
         ps.Play();
         gameObject.SetActive(false);
     }*/
+
     void OnTriggerEnter(Collider collision)
     {
         
         if (!collision.CompareTag("Enemy"))
         {
-
             return;
         }
 

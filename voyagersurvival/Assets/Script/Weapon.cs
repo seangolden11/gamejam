@@ -24,9 +24,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Init(int level)
+    public void Init(WeaponData data)
     {
-        this.curlevel = level;
+        
+        this.data = data;
+        curweaponid = data.weaponID;
+        this.curlevel = GameManger.Instance.weaponLevel[curweaponid];
+        GameManger.Instance.weaponPanel.SetActive(false);
     }
 
     void Fire()
@@ -34,7 +38,12 @@ public class Weapon : MonoBehaviour
         Transform temptrans=  GameManger.Instance.pool.GetBullet(curweaponid).transform;
         temptrans.parent = transform;
         temptrans.localPosition = Vector3.zero;
-        temptrans.localRotation = Quaternion.identity;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // z축을 0으로 고정 (2D이므로)
+        Vector3 direction = mousePosition - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        temptrans.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         temptrans.gameObject.GetComponent<Bullet>().Init(data.damages[curlevel], data.weaponID);
     }
 }

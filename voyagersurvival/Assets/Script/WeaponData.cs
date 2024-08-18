@@ -17,6 +17,7 @@ public class WeaponData : ScriptableObject
     
     public float[] damages;
     public int[] counts;
+    public float[] fireSpeed;
 
     [Header("# Weapon")]
 

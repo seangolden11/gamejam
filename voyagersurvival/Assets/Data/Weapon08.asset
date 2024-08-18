@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf74144f7fb06334fa536fb2a44e4cd2, type: 3}
-  m_Name: Weapon42
+  m_Name: Weapon08
   m_EditorClassIdentifier: 
-  weaponID: 0
-  weaponName: missle
-  weaponDesc: follow your mouse
-  weaponIcon: {fileID: 21300000, guid: cc80aa109ddf53d49930fb12d56b4aef, type: 3}
+  weaponID: 1
+  weaponName: default
+  weaponDesc: default
+  weaponIcon: {fileID: 21300000, guid: 84c456a8710bafb46a5cc4476b1a315d, type: 3}
   damages:
   - 1
   - 2
+  - 3
   - 4
-  - 8
-  - 16
+  - 5
   counts: 0100000001000000010000000100000001000000
   fireSpeed:
-  - 0.5
-  - 0.45
-  - 0.4
-  - 0.35
   - 0.3
-  weapon: {fileID: 6608409727942895691, guid: acc9c912f02c890469b3759f8187a965, type: 3}
+  - 0.25
+  - 0.2
+  - 0.15
+  - 0.1
+  weapon: {fileID: 6608409727942895691, guid: 6bbed65c806dd294983a1c85aaee4249, type: 3}
