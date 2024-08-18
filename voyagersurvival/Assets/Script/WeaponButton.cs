@@ -31,7 +31,8 @@ public class WeaponButton : MonoBehaviour
 
     public void Init()
     {
+        
         text1.text = string.Format("{0} LV.{1}", data.weaponName, DataManager.Instance.data.weaponLevel[data.weaponID]);
-        text2.text = string.Format("Cost : {0}", 200 * (DataManager.Instance.data.weaponLevel[data.weaponID] + 1));
+        text2.text = string.Format("Cost : {0}", 200 * (DataManager.Instance.data.weaponLevel[data.weaponID]+1));
     }
 }

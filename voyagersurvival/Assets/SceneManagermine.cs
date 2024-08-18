@@ -14,6 +14,7 @@ public class SceneManagermine : MonoBehaviour
 
     public void Totitle()
     {
-        SceneManager.LoadScene("Start Scene");
+        DataManager.Instance.SaveGameData();
+        SceneManager.LoadScene("StartScene");
     }
 }

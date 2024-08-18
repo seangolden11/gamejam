@@ -12,6 +12,8 @@ public class Satellite_update : MonoBehaviour
     public float maxHp;
     public float curHp;
     Weapon wp;
+    AudioSource audioSoure;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class Satellite_update : MonoBehaviour
         curHp = maxHp;
         wp = GetComponentInChildren<Weapon>();
         inputVec.z = 0;
+        audioSoure = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,9 +66,11 @@ public class Satellite_update : MonoBehaviour
             curHp -= collision.GetComponent<Asteroid>().Damage;
         else if (collision.GetComponent<StokeAsteroid>())
             curHp -= collision.GetComponent<StokeAsteroid>().Damage;
+        audioSoure.Play();
         collision.gameObject.SetActive(false);
         if (curHp < 0)
         {
+            GameManger.Instance.GameOver();
             gameObject.SetActive(false);
         }
 

@@ -8,14 +8,19 @@ using UnityEngine.UI;
 public class StartManager : MonoBehaviour
 {
     public GameObject UpgradePanel;
+    AudioSource audioSoure;
+    public AudioClip failsound;
+    public AudioClip successsound;
 
     private void Start()
     {
         DataManager.Instance.LoadGameData();
         UpgradePanel.SetActive(false);
+        audioSoure = GetComponent<AudioSource>();
         
         if (DataManager.Instance.data.weaponLevel.Length != 3)
         {
+            Debug.Log("re");
             DataManager.Instance.data.weaponLevel = new int[3];
         }
     }
@@ -27,6 +32,7 @@ public class StartManager : MonoBehaviour
     public void Upgrade()
     {
         UpgradePanel.SetActive(true);
+        /*
         Transform[] allChildren = UpgradePanel.GetComponentsInChildren<Transform>();
         foreach (Transform child in allChildren)
         {
@@ -35,7 +41,7 @@ public class StartManager : MonoBehaviour
                 child.GetComponent<WeaponButton>().Init();
             }
         }
-
+        */
     }
 
     private void OnApplicationQuit()
@@ -52,14 +58,14 @@ public class StartManager : MonoBehaviour
 
     public void UpgradeWeapon(WeaponData data)
     {
-        
-        if (DataManager.Instance.data.mineral > DataManager.Instance.data.weaponLevel[data.weaponID] * 200)
+        audioSoure.clip = failsound;
+        if (DataManager.Instance.data.mineral > (DataManager.Instance.data.weaponLevel[data.weaponID]+1) * 200)
         {
             if (DataManager.Instance.data.weaponLevel[data.weaponID] <= 3)
             {
-                DataManager.Instance.data.mineral -= DataManager.Instance.data.weaponLevel[data.weaponID] * 200;
+                DataManager.Instance.data.mineral -= (DataManager.Instance.data.weaponLevel[data.weaponID]+1) * 200;
                 DataManager.Instance.data.weaponLevel[data.weaponID]++;
-
+                audioSoure.clip = successsound;
                 
             
             }
@@ -73,5 +79,7 @@ public class StartManager : MonoBehaviour
                 child.GetComponent<WeaponButton>().Init();
             }
         }
+        audioSoure.Play();
     }
+
 }

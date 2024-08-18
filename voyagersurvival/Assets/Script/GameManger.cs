@@ -22,13 +22,18 @@ public class GameManger : MonoBehaviour
     public float ChangeOffset;
     float changetime;
     public GameObject pausePanel;
+    public GameObject gameOver;
+    public GameObject Score;
+    bool isGameOver;
 
     private void Awake()
     {
         Instance = this;
-       
+       isGameOver = false;
         gameTime = 0;
         audioSoure = GetComponent<AudioSource>();
+        gameOver.SetActive(false);
+        Score.SetActive(false);
         pausePanel.SetActive(false);
         
     }
@@ -38,7 +43,7 @@ public class GameManger : MonoBehaviour
     {
         gameTime += Time.deltaTime;
         changetime += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isGameOver)
         {
             if (pausePanel.activeSelf)
                 pausePanel.SetActive(false);
@@ -85,5 +90,14 @@ public class GameManger : MonoBehaviour
         }
         audioSoure.Play();
         DataManager.Instance.data.mineral += mineral;
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+        gameOver.SetActive(true);
+        Score.SetActive(true);
+        Score.GetComponent<Score>().Init();
+        pausePanel.SetActive(true);
     }
 }
