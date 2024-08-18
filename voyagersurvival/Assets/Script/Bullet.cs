@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class Bullet : MonoBehaviour
     public float speed = 5f;
     int bulletId;
     public float rotationSpeed = 200f;
+    TrailRenderer ps;
+    
     
     void Start()
     {
-        
+        ps = GetComponent<TrailRenderer>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -45,16 +48,30 @@ public class Bullet : MonoBehaviour
             case 1:
                 transform.position += transform.right * speed * Time.deltaTime;
                 break;
+            case 2:
+                transform.position += transform.right * speed * Time.deltaTime;
+                break;
 
         }
+    }
+
+    private void OnEnable()
+    {
+        if (ps == null) { 
+            ps = GetComponent<TrailRenderer>();
+        }
+        ps.emitting = false;
     }
 
     public void Init(float Damage, int bid)
     {
         this.Damage = Damage;
         this.bulletId = bid;
+        ps.emitting = true;
         
     }
+
+    
 
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -76,9 +93,9 @@ public class Bullet : MonoBehaviour
         {
             return;
         }
-
+        
         rb.velocity = Vector3.zero;
-
+        ps.Clear();
         collision.GetComponent<Asteroid>().GiveDamage(Damage);
 
         GameManger.Instance.PlayEffect(bulletId, transform.position);

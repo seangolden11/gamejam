@@ -22,4 +22,5 @@ public class WeaponData : ScriptableObject
     [Header("# Weapon")]
 
     public GameObject weapon;
+    public AudioClip firesound;
 }

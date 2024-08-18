@@ -95,6 +95,7 @@ public class Asteroid : MonoBehaviour
         curHp -= damage;
         if (curHp < 0)
         {
+            GameManger.Instance.GetMineral((int)maxHp);
             isAlive = false;
             this.gameObject.SetActive(false);
         }

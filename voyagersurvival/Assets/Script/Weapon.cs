@@ -9,10 +9,13 @@ public class Weapon : MonoBehaviour
     public int curweaponid;
     public WeaponData data;
     public int curlevel;
+    AudioSource audioSoure;
     private void Start()
     {
+        audioSoure = GetComponent<AudioSource>();
         timer = 0;
         curlevel = 0;
+        Init(data);
     }
     private void Update()
     {
@@ -30,7 +33,9 @@ public class Weapon : MonoBehaviour
         this.data = data;
         curweaponid = data.weaponID;
         this.curlevel = GameManger.Instance.weaponLevel[curweaponid];
-        GameManger.Instance.weaponPanel.SetActive(false);
+        fireSpeed = data.fireSpeed[curlevel];
+        audioSoure.clip = data.firesound;
+        
     }
 
     void Fire()
@@ -45,5 +50,10 @@ public class Weapon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         temptrans.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         temptrans.gameObject.GetComponent<Bullet>().Init(data.damages[curlevel], data.weaponID);
+        if (audioSoure.clip)
+        {
+            audioSoure.Play();
+        }
+
     }
 }

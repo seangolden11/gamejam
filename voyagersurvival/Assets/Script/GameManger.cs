@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManger : MonoBehaviour
@@ -15,6 +16,9 @@ public class GameManger : MonoBehaviour
     public GameObject effectGroup;
     public int[] weaponLevel;
     public GameObject weaponPanel;
+    public int maxMineral;
+    AudioSource audioSoure;
+    public WeaponData[] weaponDatas;
 
 
     private void Awake()
@@ -25,18 +29,20 @@ public class GameManger : MonoBehaviour
             weaponLevel[i] = 0;
         }
         gameTime = 0;
-        weaponPanel.SetActive(false);
+        audioSoure = GetComponent<AudioSource>();
+        
     }
+
 
     private void Update()
     {
         gameTime += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (weaponPanel.activeSelf)
                 weaponPanel.SetActive(false);
             weaponPanel.SetActive(true);
-        }
+        }*/
 
     }
 
@@ -56,5 +62,17 @@ public class GameManger : MonoBehaviour
         ps[id].transform.position = pos;
         Instantiate(ps[id]).Play();
         
+    }
+
+    public void GetMineral(int mineral)
+    {
+        int curmineral = DataManager.Instance.data.mineral;
+        if (curmineral > maxMineral)
+        {
+            curmineral = maxMineral;
+            return;
+        }
+        audioSoure.Play();
+        DataManager.Instance.data.mineral += mineral;
     }
 }

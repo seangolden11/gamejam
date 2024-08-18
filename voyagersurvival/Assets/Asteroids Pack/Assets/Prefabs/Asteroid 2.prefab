@@ -174,6 +174,9 @@ MonoBehaviour:
   speed: 2
   spawnPos: {x: 0, y: 0}
   lifeTime: 20
+  curHp: 0
+  maxHp: 0
+  Damage: 0
 --- !u!136 &3590957241719778143
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -193,10 +196,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.92014414
-  m_Height: 3.764107
+  m_Radius: 1.2992171
+  m_Height: 4.170254
   m_Direction: 1
-  m_Center: {x: 0.022112813, y: 0.29852322, z: 0}
+  m_Center: {x: 0.022112813, y: 0.29878277, z: -0.034969706}
 --- !u!1 &146874
 GameObject:
   m_ObjectHideFlags: 0

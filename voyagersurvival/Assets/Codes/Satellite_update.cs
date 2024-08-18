@@ -11,6 +11,7 @@ public class Satellite_update : MonoBehaviour
     ScrollUV scrolluv;
     public float maxHp;
     public float curHp;
+    Weapon wp;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class Satellite_update : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         scrolluv = GameManger.Instance.scrolluv;
         curHp = maxHp;
+        wp = GetComponentInChildren<Weapon>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,18 @@ public class Satellite_update : MonoBehaviour
     {
         inputVec.x = Input.GetAxis("Horizontal");
         inputVec.y = Input.GetAxis("Vertical");
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            wp.Init(GameManger.Instance.weaponDatas[1]);
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            wp.Init(GameManger.Instance.weaponDatas[0]);
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            wp.Init(GameManger.Instance.weaponDatas[2]);
+        }
     }
 
     void FixedUpdate()

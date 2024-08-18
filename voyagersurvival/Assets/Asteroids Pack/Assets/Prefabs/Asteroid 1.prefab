@@ -319,6 +319,9 @@ MonoBehaviour:
   speed: 2
   spawnPos: {x: 0, y: 0}
   lifeTime: 20
+  curHp: 0
+  maxHp: 0
+  Damage: 0
 --- !u!135 &1940342700580726301
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -338,8 +341,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.85006857
-  m_Center: {x: -0.02480805, y: 0, z: 0}
+  m_Radius: 1.0154191
+  m_Center: {x: 0.121754766, y: -0.018787742, z: 0}
 --- !u!1 &176588
 GameObject:
   m_ObjectHideFlags: 0
