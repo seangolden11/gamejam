@@ -21,7 +21,7 @@ public class GameManger : MonoBehaviour
     public WeaponData[] weaponDatas;
     public float ChangeOffset;
     float changetime;
-
+    public GameObject pausePanel;
 
     private void Awake()
     {
@@ -29,6 +29,7 @@ public class GameManger : MonoBehaviour
        
         gameTime = 0;
         audioSoure = GetComponent<AudioSource>();
+        pausePanel.SetActive(false);
         
     }
 
@@ -37,12 +38,13 @@ public class GameManger : MonoBehaviour
     {
         gameTime += Time.deltaTime;
         changetime += Time.deltaTime;
-        /*if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (weaponPanel.activeSelf)
-                weaponPanel.SetActive(false);
-            weaponPanel.SetActive(true);
-        }*/
+            if (pausePanel.activeSelf)
+                pausePanel.SetActive(false);
+            else
+                pausePanel.SetActive(true);
+        }
         if (changetime > ChangeOffset)
         {
             changetime = 0;
