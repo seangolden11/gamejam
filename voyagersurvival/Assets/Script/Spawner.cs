@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
         stoketimer += Time.deltaTime;
         moonTimer += Time.deltaTime;
 
-        spawnLevel = Mathf.FloorToInt(GameManger.Instance.gameTime/ 10f);
+        spawnLevel = Mathf.FloorToInt(GameManger.Instance.gameTime/ 30f);
         if(spawnLevel >= spawnData.Length)
         {
             spawnLevel = spawnData.Length - 1;

@@ -27,6 +27,7 @@ MonoBehaviour:
   - 0.2
   - 0.15
   - 0.1
-  - 0.5
-  - 0.1
+  - 0.05
+  - 0.01
   weapon: {fileID: 6608409727942895691, guid: 6bbed65c806dd294983a1c85aaee4249, type: 3}
+  firesound: {fileID: 0}

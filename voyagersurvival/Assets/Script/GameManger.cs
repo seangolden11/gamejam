@@ -26,10 +26,7 @@ public class GameManger : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        for(int i = 0; i < weaponLevel.Length; i++)
-        {
-            weaponLevel[i] = 0;
-        }
+       
         gameTime = 0;
         audioSoure = GetComponent<AudioSource>();
         
@@ -62,6 +59,11 @@ public class GameManger : MonoBehaviour
     private void Start()
     {
         DataManager.Instance.LoadGameData();
+        for (int i = 0; i < weaponLevel.Length; i++)
+        {
+            weaponLevel[i] = DataManager.Instance.data.weaponLevel[i];
+        }
+
     }
 
     public void PlayEffect(int id,Vector3 pos)

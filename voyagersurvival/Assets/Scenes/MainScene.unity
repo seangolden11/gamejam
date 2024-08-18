@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 83d3305faa4625c48a6af3365328a755, type: 2}
+  isStart: 0
 --- !u!114 &141013818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,18 +658,30 @@ MonoBehaviour:
     health: 3
     speed: 0
     damage: 1
-  - spawnTime: 1
-    spawnStokeTime: 2
-    spawnMoontime: 20
+  - spawnTime: 0.9
+    spawnStokeTime: 1.8
+    spawnMoontime: 15
     health: 5
     speed: 0
-    damage: 2
-  - spawnTime: 1
-    spawnStokeTime: 2
-    spawnMoontime: 20
-    health: 8
+    damage: 1
+  - spawnTime: 0.8
+    spawnStokeTime: 1.6
+    spawnMoontime: 10
+    health: 10
     speed: 0
-    damage: 3
+    damage: 1
+  - spawnTime: 0.7
+    spawnStokeTime: 1.4
+    spawnMoontime: 10
+    health: 20
+    speed: 0
+    damage: 1
+  - spawnTime: 0.6
+    spawnStokeTime: 1.2
+    spawnMoontime: 10
+    health: 40
+    speed: 0
+    damage: 1
   isPlanet: 0
 --- !u!114 &471547491
 MonoBehaviour:
@@ -699,7 +712,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83d3305faa4625c48a6af3365328a755, type: 2}
   - {fileID: 11400000, guid: 9eddee5303f7fab438c533d7dca75023, type: 2}
   - {fileID: 11400000, guid: 8e370d58b4060d245a338201e585039a, type: 2}
-  ChangeOffset: 10
+  ChangeOffset: 30
 --- !u!114 &471547492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1875,6 +1888,7 @@ MonoBehaviour:
   curweaponid: 0
   data: {fileID: 11400000, guid: 83d3305faa4625c48a6af3365328a755, type: 2}
   curlevel: 1
+  shootangle: 000000002d000000d3ffffff5a000000a6ffffff
 --- !u!82 &1330780932
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2331,6 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 9eddee5303f7fab438c533d7dca75023, type: 2}
+  isStart: 0
 --- !u!114 &1627357450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2572,6 +2587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 8e370d58b4060d245a338201e585039a, type: 2}
+  isStart: 0
 --- !u!114 &1901079265
 MonoBehaviour:
   m_ObjectHideFlags: 0
