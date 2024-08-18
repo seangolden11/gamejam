@@ -6,13 +6,13 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody rb;
     float Damage;
-    public float speed =5f;
+    public float speed = 5f;
     int bulletId;
     public float rotationSpeed = 200f;
-    public ParticleSystem ps;
+    
     void Start()
     {
-        ps = GetComponent<ParticleSystem>();
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -45,11 +45,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void Init(float Damage,Vector2 dir,int bid)
+    public void Init(float Damage, int bid)
     {
         this.Damage = Damage;
         this.bulletId = bid;
-        rb.velocity = dir;
+        
     }
 
     /*private void OnTriggerEnter2D(Collider2D collision)
@@ -66,7 +66,7 @@ public class Bullet : MonoBehaviour
     }*/
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(1);
+        
         if (!collision.CompareTag("Enemy"))
         {
 
@@ -74,14 +74,12 @@ public class Bullet : MonoBehaviour
         }
 
         rb.velocity = Vector3.zero;
-        
+
+        collision.GetComponent<Asteroid>().GiveDamage(Damage);
+
+        GameManger.Instance.PlayEffect(bulletId, transform.position);
         gameObject.SetActive(false);
-        
+
     }
 
-    private void OnDisable()
-    {
-        ps.transform.position = transform.position;
-        ps.Play();
-    }
 }

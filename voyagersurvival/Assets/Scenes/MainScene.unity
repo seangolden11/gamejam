@@ -329,14 +329,17 @@ MonoBehaviour:
   spawnLevel: 0
   spawnData:
   - spawnTime: 1
-    health: 0
+    health: 3
     speed: 0
+    damage: 0
   - spawnTime: 1
-    health: 0
+    health: 5
     speed: 0
+    damage: 0
   - spawnTime: 1
-    health: 0
+    health: 8
     speed: 0
+    damage: 0
 --- !u!114 &471547491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,8 +357,10 @@ MonoBehaviour:
   player: {fileID: 810364303}
   scrolluv: {fileID: 541092857}
   gameTime: 0
-  effectPrefab: {fileID: 0}
+  ps:
+  - {fileID: 3483850568313104628, guid: 212e3028a0e93c3429a11ac93f0eea8e, type: 3}
   effectGroup: {fileID: 0}
+  weaponLevel: 
 --- !u!114 &471547492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,6 +939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireSpeed: 0.2
   curweaponid: 0
+  data: {fileID: 11400000, guid: 83d3305faa4625c48a6af3365328a755, type: 2}
+  curlevel: 0
 --- !u!1 &1402122227
 GameObject:
   m_ObjectHideFlags: 0
