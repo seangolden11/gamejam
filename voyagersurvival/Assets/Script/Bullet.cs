@@ -11,17 +11,29 @@ public class Bullet : MonoBehaviour
     int bulletId;
     public float rotationSpeed = 200f;
     TrailRenderer ps;
+    float curtime;
+    int per;
     
     
     void Start()
     {
         ps = GetComponent<TrailRenderer>();
         rb = GetComponent<Rigidbody>();
+        curtime = 0;
+        per = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
+        curtime += Time.deltaTime;
+        if (curtime > 30)
+        {
+            curtime = 0;
+            ps.Clear();
+            gameObject.SetActive(false);
+
+        }
         switch (bulletId)
         {
             case 0:
@@ -68,6 +80,7 @@ public class Bullet : MonoBehaviour
         this.Damage = Damage;
         this.bulletId = bid;
         ps.emitting = true;
+        per = 3;
         
     }
 
@@ -94,9 +107,23 @@ public class Bullet : MonoBehaviour
             return;
         }
         
+        
+        if (collision.GetComponent<Asteroid>())
+            collision.GetComponent<Asteroid>().GiveDamage(Damage);
+        else if (collision.GetComponent<StokeAsteroid>())
+            collision.GetComponent<StokeAsteroid>().GiveDamage(Damage);
+
+        if(bulletId == 2)
+        {
+            per--;
+            if(per >= 0)
+            {
+                return;
+            }
+        }
+
         rb.velocity = Vector3.zero;
         ps.Clear();
-        collision.GetComponent<Asteroid>().GiveDamage(Damage);
 
         GameManger.Instance.PlayEffect(bulletId, transform.position);
         gameObject.SetActive(false);

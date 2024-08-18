@@ -9,6 +9,7 @@ public class WeaponButton : MonoBehaviour
     Text text1;
     Text text2;
     Image icon1;
+    public bool isStart;
 
     private void Start()
     {
@@ -18,5 +19,19 @@ public class WeaponButton : MonoBehaviour
         text1.text = data.weaponName;
         
         icon1.sprite = data.weaponIcon;
+
+        if (isStart)
+        {
+            text2 = transform.GetChild(1).GetComponent<Text>();
+            text1.text = string.Format("{0} LV.{1}", data.weaponName, DataManager.Instance.data.weaponLevel[data.weaponID]);
+            text2.text = string.Format("Cost : {0}", 200 * (DataManager.Instance.data.weaponLevel[data.weaponID] +1));
+            
+        }
+    }
+
+    public void Init()
+    {
+        text1.text = string.Format("{0} LV.{1}", data.weaponName, DataManager.Instance.data.weaponLevel[data.weaponID]);
+        text2.text = string.Format("Cost : {0}", 200 * (DataManager.Instance.data.weaponLevel[data.weaponID] + 1));
     }
 }

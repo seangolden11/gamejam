@@ -41,12 +41,15 @@ public class Satellite_update : MonoBehaviour
         {
             wp.Init(GameManger.Instance.weaponDatas[2]);
         }
+        
     }
 
     void FixedUpdate()
     {
         rigid.MovePosition(rigid.position + (inputVec * Time.fixedDeltaTime * speed));
         scrolluv.ChangeOffset(inputVec.x, inputVec.y);
+
+       
     }
 
     void OnTriggerEnter(Collider collision)
@@ -56,9 +59,11 @@ public class Satellite_update : MonoBehaviour
         {
             return;
         }
-
-        curHp -= collision.GetComponent<Asteroid>().Damage;
-
+        if (collision.GetComponent<Asteroid>())
+            curHp -= collision.GetComponent<Asteroid>().Damage;
+        else if (collision.GetComponent<StokeAsteroid>())
+            curHp -= collision.GetComponent<StokeAsteroid>().Damage;
+        collision.gameObject.SetActive(false);
         if (curHp < 0)
         {
             gameObject.SetActive(false);

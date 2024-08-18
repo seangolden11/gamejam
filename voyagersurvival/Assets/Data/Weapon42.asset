@@ -22,12 +22,12 @@ MonoBehaviour:
   - 4
   - 8
   - 16
-  counts: 0100000001000000010000000100000001000000
+  counts: 0100000002000000030000000400000005000000
   fireSpeed:
   - 0.5
-  - 0.45
-  - 0.4
-  - 0.35
-  - 0.3
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
   weapon: {fileID: 6608409727942895691, guid: acc9c912f02c890469b3759f8187a965, type: 3}
   firesound: {fileID: 8300000, guid: 35efff2eeacb9a341a5cb359feef1ab7, type: 3}
