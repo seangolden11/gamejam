@@ -19,6 +19,8 @@ public class GameManger : MonoBehaviour
     public int maxMineral;
     AudioSource audioSoure;
     public WeaponData[] weaponDatas;
+    public float ChangeOffset;
+    float changetime;
 
 
     private void Awake()
@@ -37,13 +39,18 @@ public class GameManger : MonoBehaviour
     private void Update()
     {
         gameTime += Time.deltaTime;
+        changetime += Time.deltaTime;
         /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (weaponPanel.activeSelf)
                 weaponPanel.SetActive(false);
             weaponPanel.SetActive(true);
         }*/
-
+        if (changetime > ChangeOffset)
+        {
+            changetime = 0;
+            scrolluv.ChangePlace();
+        }
     }
 
 

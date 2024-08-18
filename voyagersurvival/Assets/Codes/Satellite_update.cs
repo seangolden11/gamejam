@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Satellite_update : MonoBehaviour
 {
-    public Vector2 inputVec;
+    public Vector3 inputVec;
     public float speed;
-    Rigidbody2D rigid;
+    Rigidbody rigid;
     ScrollUV scrolluv;
     public float maxHp;
     public float curHp;
@@ -16,10 +16,11 @@ public class Satellite_update : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody>();
         scrolluv = GameManger.Instance.scrolluv;
         curHp = maxHp;
         wp = GetComponentInChildren<Weapon>();
+        inputVec.z = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class Satellite_update : MonoBehaviour
     {
         inputVec.x = Input.GetAxis("Horizontal");
         inputVec.y = Input.GetAxis("Vertical");
+        
         if (Input.GetKeyDown(KeyCode.Z))
         {
             wp.Init(GameManger.Instance.weaponDatas[1]);
@@ -45,5 +47,22 @@ public class Satellite_update : MonoBehaviour
     {
         rigid.MovePosition(rigid.position + (inputVec * Time.fixedDeltaTime * speed));
         scrolluv.ChangeOffset(inputVec.x, inputVec.y);
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+
+        if (!collision.CompareTag("Enemy"))
+        {
+            return;
+        }
+
+        curHp -= collision.GetComponent<Asteroid>().Damage;
+
+        if (curHp < 0)
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }
